@@ -6,7 +6,7 @@ import { Navbar } from "./components/Navbar";
 
 export default function App() {
   return (
-    <div className="container w-full p-2">
+    <div className="h-screen w-full bg-indigo-100">
       <Navbar />
       <Routes>
         <Route path="/home" element={<Home />} />
