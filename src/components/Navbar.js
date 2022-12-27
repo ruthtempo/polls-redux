@@ -3,7 +3,7 @@ import { Button } from "../ui/Button.js";
 
 export const Navbar = () => {
   return (
-    <nav className="w-full bg-indigo-300 p-4 flex justify-between">
+    <nav className="w-full bg-indigo-200 p-4 flex justify-between">
       <div className="flex items-center justify-items-center">
         <Link to="home" className="p-2 uppercase">
           Dashboard
