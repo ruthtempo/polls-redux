@@ -1,11 +1,17 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
+import { Home } from "./components/Home";
+import { Navbar } from "./components/Navbar";
 
 export default function App() {
   return (
     <div className="container">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Login />
+      <Navbar />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Login />} />
+      </Routes>
     </div>
   );
 }
