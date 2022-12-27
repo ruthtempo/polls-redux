@@ -1,7 +1,11 @@
 import React from "react";
+import Login from "./components/Login";
 
-function App() {
-  return <div className="App">HELLO</div>;
+export default function App() {
+  return (
+    <div className="container">
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Login />
+    </div>
+  );
 }
-
-export default App;
