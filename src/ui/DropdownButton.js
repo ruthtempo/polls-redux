@@ -1,7 +1,7 @@
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
-export const DropdownButton = ({ buttonText, username }) => {
+export const DropdownButton = ({ buttonText, children }) => {
   const [show, setShow] = useState(false);
 
   return (
@@ -21,15 +21,7 @@ export const DropdownButton = ({ buttonText, username }) => {
           tabindex="-1"
         >
           <ul class="py-1" role="none">
-            <li
-              href="#"
-              className="text-gray-700 block px-4 py-2 text-sm cursor-pointer  hover:bg-sky-50 capitalize"
-              role="menuitem"
-              tabindex="-1"
-              id="menu-item-0"
-            >
-              {username ? username : "user"}
-            </li>
+            {children}
           </ul>
         </div>
       )}
