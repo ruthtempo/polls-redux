@@ -9,7 +9,7 @@ const receiveData = (users) => {
   };
 };
 
-export const handleInitialData = () => {
+export const handleInitialUsersData = () => {
   return (dispatch) => {
     return API._getUsers().then((users) => {
       dispatch(receiveData(users));
