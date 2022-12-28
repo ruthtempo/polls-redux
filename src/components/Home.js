@@ -11,7 +11,7 @@ const Home = (props) => {
 
   return (
     <div className="flex flex-col">
-      <div className=" flex justify-center items-center mb-4 bg-indigo-400 text-white h-16 ">
+      <div className=" flex justify-center items-center mb-4 border-2 border-indigo-300 border-dotted h-16">
         New Polls
       </div>
       <div className="flex flex-wrap justify-center">
@@ -19,7 +19,7 @@ const Home = (props) => {
           <PollCard poll={poll} />
         ))}
       </div>
-      <h3 className=" flex justify-center items-center my-4 bg-indigo-400 text-white h-16">
+      <h3 className=" flex justify-center items-center mb-4 border-2 border-indigo-300 border-dotted  h-16 mt-4">
         Answered Polls
       </h3>
       <div className="flex flex-wrap justify-center">
