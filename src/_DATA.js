@@ -1,4 +1,7 @@
 import sarahAvatar from "./media/sarah.jpg";
+import tylerAvatar from "./media/tyler.jpg";
+import mikeAvatar from "./media/mike.jpg";
+import zenobiAvatar from "./media/zenobi.jpg";
 
 export let users = {
   sarahedo: {
@@ -18,7 +21,7 @@ export let users = {
     id: "tylermcginnis",
     password: "abc321",
     name: "Tyler McGinnis",
-    avatarURL: null,
+    avatarURL: tylerAvatar,
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -29,7 +32,7 @@ export let users = {
     id: "mtsamis",
     password: "xyz123",
     name: "Mike Tsamis",
-    avatarURL: null,
+    avatarURL: mikeAvatar,
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -41,7 +44,7 @@ export let users = {
     id: "zoshikanlu",
     password: "pass246",
     name: "Zenobia Oshikanlu",
-    avatarURL: null,
+    avatarURL: zenobiAvatar,
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
     },
