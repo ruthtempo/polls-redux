@@ -1,14 +1,18 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import middleware from "./middleware";
+import reducer from "./reducers";
+
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
+
+const store = createStore(reducer, middleware);
 
 root.render(
   <Provider store={store}>
@@ -17,5 +21,3 @@ root.render(
     </BrowserRouter>
   </Provider>
 );
-
-reportWebVitals();
