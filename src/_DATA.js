@@ -1,9 +1,11 @@
-let users = {
+import sarahAvatar from "./media/sarah.jpg";
+
+export let users = {
   sarahedo: {
     id: "sarahedo",
     password: "password123",
     name: "Sarah Edo",
-    avatarURL: null,
+    avatarURL: sarahAvatar,
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
