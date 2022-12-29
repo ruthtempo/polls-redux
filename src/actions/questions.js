@@ -14,8 +14,8 @@ export const handleInitialQuestionsData = () => {
   return (dispatch) => {
     dispatch(showLoading());
     return API._getQuestions().then((questions) => {
-      dispatch(receiveQuestions(questions));
       dispatch(hideLoading());
+      dispatch(receiveQuestions(questions));
     });
   };
 };

@@ -20,7 +20,9 @@ const Home = (props) => {
       <div className="flex flex-wrap justify-center">
         {props.loading
           ? null
-          : props.unansweredPolls.map((poll) => <PollCard poll={poll} />)}
+          : props.unansweredPolls.map((poll) => (
+              <PollCard key={poll.id} poll={poll} />
+            ))}
       </div>
       <h3 className=" flex justify-center items-center mb-4 border-2 border-indigo-300 border-dotted  h-16 mt-4">
         Answered Polls
@@ -28,7 +30,9 @@ const Home = (props) => {
       <div className="flex flex-wrap justify-center">
         {props.loading
           ? null
-          : props.answeredPolls.map((poll) => <PollCard poll={poll} />)}
+          : props.answeredPolls.map((poll) => (
+              <PollCard key={poll.id} poll={poll} />
+            ))}
       </div>
     </div>
   );
