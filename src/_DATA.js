@@ -148,7 +148,7 @@ export function _getUsers() {
 
 export function _getQuestions() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve({ ...questions }), 1000);
+    setTimeout(() => resolve({ ...questions }), 1500);
   });
 }
 
