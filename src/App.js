@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import LoginForm from "./components/Login";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import PollView from "./components/PollView";
 import { handleInitialUsersData } from "./actions/users";
 import { connect } from "react-redux";
 
@@ -19,6 +20,8 @@ function App(props) {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/questions/question:id" element={<PollView />} />
+            {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </>
       ) : (

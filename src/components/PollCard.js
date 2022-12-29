@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { Button } from "../ui/Button";
 
 export const PollCard = ({ poll }) => {
@@ -8,7 +9,9 @@ export const PollCard = ({ poll }) => {
       <span>
         {date.toLocaleTimeString()} | {date.toLocaleDateString()}
       </span>
-      <Button buttonText={"Show"} className="w-2/3" />
+      <NavLink to={`/questions/${poll.id}`} className="w-2/3">
+        <Button buttonText={"Show"} className="w-full" />
+      </NavLink>
     </div>
   );
 };
