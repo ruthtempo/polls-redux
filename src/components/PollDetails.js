@@ -12,7 +12,7 @@ const PollDetails = ({ questions, users }) => {
   ); // to get the avatar that matches the poll author
 
   return (
-    <div className="bg-indigo-100 flex flex-col py-4">
+    <div className="bg-indigo-100 py-4">
       <div className=" flex flex-col items-center">
         <h4 className="text-2xl mb-4"> Poll by {question[0].author}</h4>
         <img
@@ -22,9 +22,14 @@ const PollDetails = ({ questions, users }) => {
         />
         <h4 className="text-4xl my-4"> Would you rather</h4>
       </div>
-      <div className="flex flex-wrap justify-center items-stretch">
-        <Option className="rounded-l-lg">{question[0].optionOne.text}</Option>
-        <Option className="rounded-r-lg">{question[0].optionTwo.text}</Option>
+
+      <div className="flex flex-wrap flex-initial justify-center w-full">
+        <Option className="rounded-l-lg w-full">
+          {question[0].optionOne.text}
+        </Option>
+        <Option className="rounded-r-lg w-full">
+          {question[0].optionTwo.text}
+        </Option>
       </div>
     </div>
   );
