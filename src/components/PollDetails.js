@@ -35,6 +35,7 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
 
             <div className="flex flex-wrap flex-initial justify-center w-full">
               <Option
+                className="rounded-l-lg w-full"
                 disabled={hasChosenAnswer}
                 onClick={() =>
                   dispatch(
@@ -45,6 +46,7 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
                 {question[0].optionOne.text}
               </Option>
               <Option
+                className=" rounded-r-lg w-full"
                 disabled={hasChosenAnswer}
                 onClick={() =>
                   dispatch(
