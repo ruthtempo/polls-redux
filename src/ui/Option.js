@@ -1,12 +1,13 @@
-export const Option = ({ children, className, onClick }) => {
+export const Option = ({ children, className, onClick, disabled }) => {
   return (
-    <div
-      className={` text-center max-w-md bg-indigo-300 hover:bg-teal-300 p-4 text-xl drop-shadow-md cursor-pointer m-2 ${
+    <button
+      className={`bg-indigo-300 hover:bg-teal-300 disabled:opacity-75 disabled:pointer-events-none text-center max-w-md p-4 text-xl drop-shadow-md cursor-pointer m-2 ${
         className ?? ""
       }`}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
-    </div>
+    </button>
   );
 };
