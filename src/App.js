@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import LoginForm from "./components/Login";
-import Home from "./components/Home";
+import HomeRoute from "./components/HomeRoute";
 import Navbar from "./components/Navbar";
-import PollDetails from "./components/PollDetails";
+import { Leaderboard } from "./components/Leaderboard";
 import { handleInitialUsersData } from "./actions/users";
 import { connect } from "react-redux";
 
@@ -19,8 +19,8 @@ function App(props) {
         <>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/questions/:question_id" element={<PollDetails />} />
+            <Route path="/*" element={<HomeRoute />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </>

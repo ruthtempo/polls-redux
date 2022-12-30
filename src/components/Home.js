@@ -1,14 +1,8 @@
-import { useEffect } from "react";
 import { connect } from "react-redux";
-import { handleInitialQuestionsData } from "../actions/questions";
-import { PollCard } from "./PollCard";
 import LoadingBar from "react-redux-loading-bar";
+import { PollCard } from "./PollCard";
 
 const Home = (props) => {
-  useEffect(() => {
-    props.dispatch(handleInitialQuestionsData());
-  }, []);
-  console.log(props.loading);
   return (
     <div className="flex flex-col">
       <LoadingBar
