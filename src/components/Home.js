@@ -1,13 +1,9 @@
 import { connect } from "react-redux";
-import LoadingBar from "react-redux-loading-bar";
 import { PollCard } from "./PollCard";
 
 const Home = (props) => {
   return (
     <div className="flex flex-col">
-      <LoadingBar
-        style={{ backgroundColor: "mediumSlateBlue", height: "5px" }}
-      />
       <div className=" flex justify-center items-center mb-4 border-2 border-indigo-300 border-dotted h-16">
         New Polls
       </div>

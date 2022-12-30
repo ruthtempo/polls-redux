@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import { Leaderboard } from "./components/Leaderboard";
 import { handleInitialUsersData } from "./actions/users";
 import { connect } from "react-redux";
+import LoadingBar from "react-redux-loading-bar";
 
 function App(props) {
   useEffect(() => {
@@ -18,6 +19,9 @@ function App(props) {
       {props.authedUser !== null ? (
         <>
           <Navbar />
+          <LoadingBar
+            style={{ backgroundColor: "mediumSlateBlue", height: "5px" }}
+          />
           <Routes>
             <Route path="/*" element={<HomeRoute />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
