@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import { handleSaveAnswer } from "../actions/questions";
 import { Option } from "../ui/Option";
 
-const PollDetails = ({ questions, users, loading, authedUser }) => {
+const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
   const { question_id } = useParams();
 
   const question =
@@ -27,21 +28,29 @@ const PollDetails = ({ questions, users, loading, authedUser }) => {
                 alt="user-avatar"
                 className="rounded-full w-32 border-solid border-4 border-teal-200"
               />
-              <h4 className="text-4xl my-4 text-indigo-600 font-bold">
+              <h4 className="text-4xl my-4 text-indigo-700 font-bold">
                 Would you rather
               </h4>
             </div>
 
             <div className="flex flex-wrap flex-initial justify-center w-full">
               <Option
-                className="rounded-l-lg w-full"
                 disabled={hasChosenAnswer}
+                onClick={() =>
+                  dispatch(
+                    handleSaveAnswer(authedUser.id, question_id, "optionOne")
+                  )
+                }
               >
                 {question[0].optionOne.text}
               </Option>
               <Option
-                className="rounded-r-lg w-full"
                 disabled={hasChosenAnswer}
+                onClick={() =>
+                  dispatch(
+                    handleSaveAnswer(authedUser.id, question_id, "optionOne")
+                  )
+                }
               >
                 {question[0].optionTwo.text}
               </Option>
