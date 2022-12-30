@@ -18,7 +18,7 @@ const Navbar = (props) => {
             alt="user-avatar"
             className="object-contain rounded-full mr-3 w-20"
           />
-          2<p className="text-lg mr-3">{props.authedUser.id}</p>
+          <p className="text-lg mr-3">{props.authedUser.id}</p>
         </div>
 
         <Button
