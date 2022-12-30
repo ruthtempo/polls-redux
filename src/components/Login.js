@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
 const LoginForm = ({ dispatch, users, loading }) => {
   const [selectedUser, setSelectedUser] = useState();
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState("password123");
 
   const handleChange = (e) => {
     setPassword(e.target.value);
@@ -15,7 +15,7 @@ const LoginForm = ({ dispatch, users, loading }) => {
 
   const handleSubmit = () => {
     if (password === selectedUser.password) {
-      dispatch(setAuthedUser(selectedUser));
+      dispatch(setAuthedUser(selectedUser.id));
     } else {
       console.log("wrong password");
     }

@@ -30,8 +30,8 @@ const Navbar = (props) => {
   );
 };
 
-const mapStateToProps = ({ authedUser }) => ({
-  authedUser,
+const mapStateToProps = ({ authedUser, users }) => ({
+  authedUser: users[authedUser], //we retrieve the authedUser id, we use it to get the whole suer object from users.
 });
 
 export default connect(mapStateToProps)(Navbar);
