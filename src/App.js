@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import LoginForm from "./components/Login";
 import HomeRoute from "./components/HomeRoute";
 import Navbar from "./components/Navbar";
-import { Leaderboard } from "./components/Leaderboard";
+import Leaderboard from "./components/Leaderboard";
 import { handleInitialUsersData } from "./actions/users";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading-bar";
