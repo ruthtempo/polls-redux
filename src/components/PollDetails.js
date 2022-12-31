@@ -21,6 +21,17 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
     dispatch(handleSaveAnswer(authedUser.id, question_id, "optionOne"));
   };
 
+  const percentageOption2 =
+    questions &&
+    Math.round(
+      (question[0].optionTwo.votes.length * 100) / Object.keys(questions).length
+    );
+  const percentageOption1 =
+    questions &&
+    Math.round(
+      (question[0].optionOne.votes.length * 100) / Object.keys(questions).length
+    );
+
   return (
     question && (
       <div className="bg-indigo-100 py-4">
@@ -35,34 +46,48 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
                 alt="user-avatar"
                 className="rounded-full w-32 border-solid border-4 border-teal-200"
               />
-              <h4 className="text-4xl my-4 text-indigo-700 font-bold">
-                Would you rather
-              </h4>
+              <h4 className="text-4xl my-4">Would you rather</h4>
             </div>
 
-            <div className="flex flex-wrap flex-initial justify-center w-full">
-              <Option
-                className={`rounded-l-lg w-full ${
-                  authedUser.answers[question_id] === "optionOne"
-                    ? "bg-teal-300"
-                    : ""
-                }`}
-                disabled={hasChosenAnswer}
-                onClick={handleAnswerClick}
-              >
-                {question[0].optionOne.text}
-              </Option>
-              <Option
-                className={`rounded-r-lg w-full ${
-                  authedUser.answers[question_id] === "optionTwo"
-                    ? "bg-teal-300"
-                    : ""
-                }`}
-                disabled={hasChosenAnswer}
-                onClick={handleAnswerClick}
-              >
-                {question[0].optionTwo.text}
-              </Option>
+            <div className="flex flex-wrap justify-center">
+              <div className="mr-2">
+                <Option
+                  className={`rounded-l-lg w-full ${
+                    authedUser.answers[question_id] === "optionOne"
+                      ? "bg-teal-300"
+                      : ""
+                  }`}
+                  disabled={hasChosenAnswer}
+                  onClick={handleAnswerClick}
+                >
+                  {question[0].optionOne.text}
+                </Option>
+                {hasChosenAnswer && (
+                  <p className="text-center text-gray-600">
+                    {question[0].optionOne.votes.length} votes (
+                    {percentageOption1} %)
+                  </p>
+                )}
+              </div>
+              <div className="">
+                <Option
+                  className={`rounded-r-lg w-full ${
+                    authedUser.answers[question_id] === "optionTwo"
+                      ? "bg-teal-300"
+                      : ""
+                  }`}
+                  disabled={hasChosenAnswer}
+                  onClick={handleAnswerClick}
+                >
+                  {question[0].optionTwo.text}
+                </Option>
+                {hasChosenAnswer && (
+                  <p className="text-center text-gray-600">
+                    {question[0].optionTwo.votes.length} votes (
+                    {percentageOption2}%)
+                  </p>
+                )}
+              </div>
             </div>
             {hasChosenAnswer && (
               <p className="text-center italic mt-4 text-gray-500">
@@ -78,6 +103,7 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
 
 const mapStateToProps = ({ questions, users, authedUser }) => {
   const loading = questions === null && users === null;
+
   return {
     questions,
     users,
