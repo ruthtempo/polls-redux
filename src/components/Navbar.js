@@ -6,7 +6,7 @@ import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 
 const Navbar = (props) => {
   return (
-    <nav className="w-full bg-indigo-200 p-2 flex justify-between">
+    <nav className="bg-indigo-200 p-2 flex justify-between">
       <div className="flex items-center justify-items-center ml-6">
         <NavLink to="/">Dashboard</NavLink>
         <NavLink to="new-poll">New Poll</NavLink>
@@ -25,7 +25,6 @@ const Navbar = (props) => {
           className="flex items-center cursor-pointer hover:text-indigo-600 mr-6"
           onClick={() => props.dispatch(setAuthedUser(null))}
         >
-          <p>Sign out</p>
           <ArrowRightOnRectangleIcon className="w-9" />
         </div>
       </div>

@@ -3,7 +3,7 @@ import { PollCard } from "./PollCard";
 
 const Home = (props) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <div className=" flex justify-center items-center mb-4 h-16 text-xl">
         New Polls
       </div>

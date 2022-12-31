@@ -22,9 +22,9 @@ const LoginForm = ({ dispatch, users, loading }) => {
   };
 
   return (
-    <div className="rounded  p-2 m-2 flex flex-col items-center h-5/6">
+    <div className="p-2 m-2 flex flex-col items-center ">
       <h1 className="text-3xl my-2">Employee Polls</h1>
-      <div className="flex flex-col w-2/5">
+      <div className="flex flex-col xl:w-2/5 w-3/4">
         <DropdownButton buttonText={selectedUser?.id ?? "choose user"}>
           {loading
             ? null
