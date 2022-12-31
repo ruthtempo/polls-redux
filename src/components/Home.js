@@ -4,7 +4,7 @@ import { PollCard } from "./PollCard";
 const Home = (props) => {
   return (
     <div className="flex flex-col">
-      <div className=" flex justify-center items-center mb-4 border-2 border-indigo-300 border-dotted h-16">
+      <div className=" flex justify-center items-center mb-4 h-16 text-xl">
         New Polls
       </div>
       <div className="flex flex-wrap justify-center">
@@ -14,7 +14,7 @@ const Home = (props) => {
               <PollCard key={poll.id} poll={poll} />
             ))}
       </div>
-      <h3 className=" flex justify-center items-center mb-4 border-2 border-indigo-300 border-dotted  h-16 mt-4">
+      <h3 className=" flex justify-center items-center mb-4  h-16 mt-4 text-xl">
         Answered Polls
       </h3>
       <div className="flex flex-wrap justify-center">
