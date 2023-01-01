@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import LoginForm from "./components/Login";
 import HomeRoute from "./components/HomeRoute";
+import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
 import Leaderboard from "./components/Leaderboard";
 import { handleInitialUsersData } from "./actions/users";
@@ -14,8 +15,7 @@ function App(props) {
   }, []);
 
   return (
-    <div className="h-screen w-full bg-indigo-100">
-      {/* if autheduser show navbar+routes, else show loginform */}
+    <div>
       {props.authedUser !== null ? (
         <>
           <Navbar />
@@ -25,7 +25,7 @@ function App(props) {
           <Routes>
             <Route path="/*" element={<HomeRoute />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </>
       ) : (

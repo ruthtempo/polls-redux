@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 const Leaderboard = ({ users }) => {
   return (
     users && (
-      <div className="flex justify-center h-2 ">
-        <table className="table-auto bg-indigo-200 m-3 xl:w-1/2 w-full">
+      <div className="flex justify-center h-2">
+        <table className="table-auto bg-indigo-200 m-3 sm:w-full lg:w-2/3 2xl:w-1/4 xl:w-1/3 md:w-2/3">
           <thead className="h-11">
             <tr className="bg-indigo-400 text-white">
               <th>Users</th>
@@ -14,7 +14,7 @@ const Leaderboard = ({ users }) => {
           </thead>
           <tbody>
             {Object.values(users).map((user) => (
-              <tr key={user.id} className="">
+              <tr key={user.id}>
                 <td className="flex p-6 items-center">
                   <img
                     src={user.avatarURL}
@@ -22,10 +22,10 @@ const Leaderboard = ({ users }) => {
                   />
                   <p>{user.id}</p>
                 </td>
-                <td className="text-center">
+                <td className="text-end pr-6">
                   {Object.values(user.answers).length}
                 </td>
-                <td className="text-center">
+                <td className="text-end pr-6">
                   {Object.values(user.questions).length}
                 </td>
               </tr>
