@@ -7,7 +7,7 @@ const NotFound = () => {
   return (
     <div className="flex flex-col items-center">
       <p className="text-4xl py-4">No Results Found</p>
-      <img src={notFound} />
+      <img src={notFound} alt="Page not found illustration" />
       <Button buttonText={"Back to Home"} onClick={() => navigate("/")} />
     </div>
   );

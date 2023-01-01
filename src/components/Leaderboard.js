@@ -18,6 +18,7 @@ const Leaderboard = ({ users }) => {
                 <td className="flex p-6 items-center">
                   <img
                     src={user.avatarURL}
+                    alt="user-avatar"
                     className="object-contain rounded-full mr-3 w-20"
                   />
                   <p>{user.id}</p>

@@ -1,8 +1,7 @@
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import { connect } from "react-redux";
 import setAuthedUser from "../actions/authedUser.js";
-import { Button } from "../ui/Button.js";
 import { NavLink } from "../ui/NavLink.js";
-import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 
 const Navbar = (props) => {
   return (
