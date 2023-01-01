@@ -5,7 +5,7 @@ export const NavLink = ({ to, children }) => {
     <RouterLink
       to={to}
       className={({ isActive }) =>
-        `${isActive ? "text-indigo-600" : ""} pr-2 tracking-wide`
+        `${isActive ? "text-indigo-600" : ""} px-2 tracking-wide`
       }
     >
       {children}

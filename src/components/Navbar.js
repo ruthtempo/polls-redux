@@ -5,13 +5,13 @@ import { NavLink } from "../ui/NavLink.js";
 
 const Navbar = (props) => {
   return (
-    <nav className="flex justify-center py-4">
-      <div className="flex items-center justify-around w-1/4">
+    <nav className="flex justify-between py-4 flex-col md:flex-row">
+      <div className="flex items-center px-4">
         <NavLink to="/">Dashboard</NavLink>
         <NavLink to="new-poll">New Poll</NavLink>
         <NavLink to="leaderboard">Leaderboard</NavLink>
       </div>
-      <div className="flex w-2/5 justify-end items-center">
+      <div className="flex">
         <div className="flex items-center px-4">
           <img
             src={props.authedUser.avatarURL}

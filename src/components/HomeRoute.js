@@ -4,17 +4,19 @@ import PollDetails from "./PollDetails";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import { handleInitialQuestionsData } from "../actions/questions";
+import NewPoll from "./NewPoll";
 
 const HomeRoute = (props) => {
   // this component is accessed through App and Home & Polldetails, since they need the same dispatch.
   useEffect(() => {
     props.dispatch(handleInitialQuestionsData());
-  }, []);
+  }, [props]);
 
   return (
     <Routes>
-      <Route path="/questions/:question_id" element={<PollDetails />} />
       <Route index element={<Home />} />
+      <Route path="/questions/:question_id" element={<PollDetails />} />
+      <Route path="new-poll" element={<NewPoll />} />
     </Routes>
   );
 };

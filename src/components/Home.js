@@ -3,21 +3,21 @@ import { PollCard } from "./PollCard";
 
 const Home = (props) => {
   return (
-    <div className="flex flex-col w-full">
-      <div className=" flex justify-center items-center mb-4 h-16 text-xl">
+    <div className="grid grid-cols-1 justify-items-center">
+      <h3 className="text-center mb-4 h-16 text-2xl flex items-center">
         New Polls
-      </div>
-      <div className="flex flex-wrap justify-center">
+      </h3>
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 justify-items-center">
         {props.loading
           ? null
           : props.unansweredPolls.map((poll) => (
               <PollCard key={poll.id} poll={poll} />
             ))}
       </div>
-      <h3 className=" flex justify-center items-center mb-4  h-16 mt-4 text-xl">
+      <h3 className="text-center my-4 h-16 text-2xl flex items-center">
         Answered Polls
       </h3>
-      <div className="flex flex-wrap justify-center">
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 justify-items-center">
         {props.loading
           ? null
           : props.answeredPolls.map((poll) => (
