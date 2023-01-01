@@ -1,4 +1,8 @@
-import { RECEIVE_QUESTIONS_DATA, SAVE_ANSWER } from "../actions/questions";
+import {
+  RECEIVE_QUESTIONS_DATA,
+  SAVE_ANSWER,
+  SAVE_NEW_QUESTION,
+} from "../actions/questions";
 
 export default function questions(state = null, action) {
   switch (action.type) {
@@ -22,6 +26,12 @@ export default function questions(state = null, action) {
           },
         },
       };
+    case SAVE_NEW_QUESTION:
+      return {
+        ...state,
+        [action.question.id]: action.question, //receives formatted question from action and we shape the new questions object.
+      };
+    default:
+      return state;
   }
-  return state;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import LoginForm from "./components/Login";
 import HomeRoute from "./components/HomeRoute";
 import NotFound from "./components/NotFound";
@@ -13,7 +13,7 @@ import NewPoll from "./components/NewPoll";
 function App(props) {
   useEffect(() => {
     props.dispatch(handleInitialUsersData());
-  }, []);
+  }, [props]);
 
   return (
     <div>
