@@ -8,6 +8,7 @@ import Leaderboard from "./components/Leaderboard";
 import { handleInitialUsersData } from "./actions/users";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading-bar";
+import NewPoll from "./components/NewPoll";
 
 function App(props) {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App(props) {
           <Routes>
             <Route path="/*" element={<HomeRoute />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/new-poll" element={<NewPoll />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </>
