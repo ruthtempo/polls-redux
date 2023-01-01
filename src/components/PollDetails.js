@@ -13,10 +13,6 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
 
   const hasChosenAnswer = authedUser && authedUser.answers[question_id] != null; //chech if id is in answers object to disable both buttons once poll is answered
 
-  const handleAnswerClick = () => {
-    dispatch(handleSaveAnswer(authedUser.id, question_id, "optionOne"));
-  };
-
   const percentageOption2 =
     questions &&
     question &&
@@ -38,9 +34,9 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
         {loading ? null : (
           <>
             <div className="flex flex-col items-center">
-              <h4 className="text-2xl mb-4 text-gray-800">
+              <h5 className="text-2xl mb-4 text-gray-800">
                 Poll by {question.author}
-              </h4>
+              </h5>
               <img
                 src={author?.avatarURL}
                 alt="user-avatar"
@@ -48,13 +44,16 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
               />
               <h4 className="text-4xl my-4">Would you rather</h4>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2">
               <Option
                 className="rounded-l-lg"
                 isSelected={authedUser.answers[question_id] === "optionOne"}
                 disabled={hasChosenAnswer}
-                onClick={handleAnswerClick}
+                onClick={() =>
+                  dispatch(
+                    handleSaveAnswer(authedUser.id, question_id, "optionOne")
+                  )
+                }
                 percentage={percentageOption1}
                 votesLength={question.optionOne.votes.length}
                 text={question.optionOne.text}
@@ -63,7 +62,11 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
                 className="rounded-r-lg"
                 isSelected={authedUser.answers[question_id] === "optionTwo"}
                 disabled={hasChosenAnswer}
-                onClick={handleAnswerClick}
+                onClick={() =>
+                  dispatch(
+                    handleSaveAnswer(authedUser.id, question_id, "optionTwo")
+                  )
+                }
                 percentage={percentageOption2}
                 votesLength={question.optionTwo.votes.length}
                 text={question.optionTwo.text}
