@@ -28,7 +28,7 @@ const NewPoll = ({ authedUser, dispatch }) => {
 
   return (
     <div className="flex justify-center">
-      <div className=" flex flex-col w-full 2xl:w-1/4 md:w-2/3 p-4">
+      <div className=" flex flex-col w-full 2xl:w-1/3 md:w-2/3 p-4">
         <p className="text-center text-2xl py-3">Create a New Poll</p>
         <input
           placeholder="Option One"
