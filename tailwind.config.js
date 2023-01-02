@@ -5,5 +5,5 @@ module.exports = {
     extend: {},
     container: { center: true },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

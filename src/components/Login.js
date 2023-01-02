@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 const LoginForm = ({ dispatch, users, loading }) => {
   const [selectedUser, setSelectedUser] = useState();
   const [password, setPassword] = useState("password123");
+  const [errorLogin, setErrorLogin] = useState(false);
 
   const handleChange = (e) => {
     setPassword(e.target.value);
@@ -17,7 +18,7 @@ const LoginForm = ({ dispatch, users, loading }) => {
     if (password === selectedUser.password) {
       dispatch(setAuthedUser(selectedUser.id));
     } else {
-      console.log("wrong password");
+      setErrorLogin(true);
     }
   };
 
@@ -43,6 +44,11 @@ const LoginForm = ({ dispatch, users, loading }) => {
           className="rounded-md p-2 my-2"
           onChange={handleChange}
         />
+        {errorLogin && (
+          <p className="text-red-600 text-center italic">
+            Username and Password do not match
+          </p>
+        )}
         <Button
           buttonText={"Log in"}
           onClick={handleSubmit}

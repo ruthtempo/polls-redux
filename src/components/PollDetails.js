@@ -11,8 +11,7 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
 
   const author = users?.[question?.author]; // to get the avatar that matches the poll author
 
-  const hasChosenAnswer =
-    authedUser && authedUser.answers[question_id] !== null; //chech if id is in answers object to disable both buttons once poll is answered
+  const hasChosenAnswer = authedUser && authedUser.answers[question_id] != null; //chech if id is in answers object to disable both buttons once poll is answered
 
   const percentageOption2 =
     questions &&

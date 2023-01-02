@@ -1,29 +1,62 @@
+import { useState } from "react";
 import { connect } from "react-redux";
 import { PollCard } from "./PollCard";
 
 const Home = (props) => {
+  const [showNewPolls, setShowNewPolls] = useState(false);
+  const [showAnsweredPolls, setShowAnsweredPolls] = useState(true);
+
   return (
     <div className="grid grid-cols-1 justify-items-center">
-      <h3 className="text-center mb-4 h-16 text-2xl flex items-center">
-        New Polls
-      </h3>
-      <div className="grid md:grid-cols-2 xl:grid-cols-4 justify-items-center">
-        {props.loading
-          ? null
-          : props.unansweredPolls.map((poll) => (
-              <PollCard key={poll.id} poll={poll} />
-            ))}
+      <div className="flex flex-col items-center md:w-1/4 p-4 rounded">
+        <label>
+          <input
+            className="rounded mr-4 cursor-pointer "
+            type="checkbox"
+            checked={showAnsweredPolls}
+            onChange={() => setShowAnsweredPolls(!showAnsweredPolls)}
+          />
+          Answered
+        </label>
+        <label>
+          <input
+            className="rounded mr-4  cursor-pointer"
+            type="checkbox"
+            checked={showNewPolls}
+            onChange={() => setShowNewPolls(!showNewPolls)}
+          />
+          New Polls
+        </label>
       </div>
-      <h3 className="text-center my-4 h-16 text-2xl flex items-center">
-        Answered Polls
-      </h3>
-      <div className="grid md:grid-cols-2 xl:grid-cols-4 justify-items-center">
-        {props.loading
-          ? null
-          : props.answeredPolls.map((poll) => (
-              <PollCard key={poll.id} poll={poll} />
-            ))}
-      </div>
+
+      {showNewPolls && (
+        <>
+          <h3 className="text-center mb-4 h-16 text-2xl flex items-center">
+            New Polls
+          </h3>
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 justify-items-center">
+            {props.loading
+              ? null
+              : props.unansweredPolls.map((poll) => (
+                  <PollCard key={poll.id} poll={poll} />
+                ))}
+          </div>
+        </>
+      )}
+      {showAnsweredPolls && (
+        <>
+          <h3 className="text-center my-4 h-16 text-2xl flex items-center">
+            Answered Polls
+          </h3>
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 justify-items-center">
+            {props.loading
+              ? null
+              : props.answeredPolls.map((poll) => (
+                  <PollCard key={poll.id} poll={poll} />
+                ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
