@@ -5,9 +5,9 @@ const Leaderboard = ({ users }) => {
     users && (
       <>
         <div className="flex justify-center hidden md:flex">
-          <table className="table-auto bg-indigo-200 md:w-2/3 xl:w-1/2 2xl:w-1/3 rounded-lg border-separate border-teal-300 border-2">
-            <thead className="h-11">
-              <tr className="bg-indigo-400 text-white">
+          <table className="table-auto bg-indigo-200 md:w-2/3 xl:w-1/2 2xl:w-1/3 rounded-lg border-separate ">
+            <thead className="h-11 bg-indigo-400 text-white border-md">
+              <tr>
                 <th>Users</th>
                 <th>Answered</th>
                 <th>Created</th>
