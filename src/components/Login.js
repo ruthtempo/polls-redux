@@ -4,6 +4,7 @@ import { Button } from "../ui/Button";
 import { DropdownButton } from "../ui/DropdownButton";
 import { DropdownItem } from "../ui/DropdownItem";
 import { connect } from "react-redux";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 
 const LoginForm = ({ dispatch, users, loading }) => {
   const [selectedUser, setSelectedUser] = useState();
@@ -26,7 +27,11 @@ const LoginForm = ({ dispatch, users, loading }) => {
     <div className="p-2 m-2 flex flex-col items-center ">
       <h1 className="text-3xl my-2">Employee Polls</h1>
       <div className="flex flex-col xl:w-2/5 w-3/4">
-        <DropdownButton buttonText={selectedUser?.id ?? "choose user"}>
+        <DropdownButton
+          buttonText={selectedUser?.id ?? "choose user"}
+          iconCollapsed={ChevronDownIcon}
+          icon={ChevronUpIcon}
+        >
           {loading
             ? null
             : Object.values(users).map((user) => (

@@ -1,12 +1,25 @@
-import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowRightOnRectangleIcon,
+  Bars4Icon,
+  HeartIcon,
+} from "@heroicons/react/24/outline";
 import { connect } from "react-redux";
 import setAuthedUser from "../actions/authedUser.js";
+import { DropdownButton } from "../ui/DropdownButton.js";
+import { DropdownItem } from "../ui/DropdownItem.js";
 import { NavLink } from "../ui/NavLink.js";
 
 const Navbar = (props) => {
   return (
-    <nav className="flex justify-between py-4 flex-col md:flex-row">
-      <div className="flex items-center px-4">
+    <nav className="flex justify-between py-4">
+      <DropdownButton
+        icon={Bars4Icon}
+        iconCollapsed={Bars4Icon}
+        className="md:hidden"
+      >
+        <DropdownItem></DropdownItem>
+      </DropdownButton>
+      <div className=" items-center px-4 hidden md:flex">
         <NavLink to="/">Dashboard</NavLink>
         <NavLink to="new-poll">New Poll</NavLink>
         <NavLink to="leaderboard">Leaderboard</NavLink>
