@@ -11,7 +11,7 @@ export let users = {
     avatarURL: sarahAvatar,
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
-      "6ni6ok3ym7mf1p33lnez": "optionOne",
+      "6ni6ok3ym7mf1p33lnez": "optionTwo",
       am8ehyc8byjqgar0jgpub9: "optionTwo",
       loxhs1bqm25b708cmbf3g: "optionTwo",
     },
@@ -148,7 +148,7 @@ export function _getUsers() {
 
 export function _getQuestions() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve({ ...questions }), 1500);
+    setTimeout(() => resolve({ ...questions }), 1000);
   });
 }
 
