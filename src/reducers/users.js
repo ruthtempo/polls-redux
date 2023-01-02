@@ -19,6 +19,7 @@ export default function users(state = null, action) {
           },
         },
       };
+    default:
+      return state;
   }
-  return state;
 }
