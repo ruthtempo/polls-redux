@@ -1,7 +1,7 @@
 import {
   ArrowRightOnRectangleIcon,
   Bars4Icon,
-  HeartIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { connect } from "react-redux";
 import setAuthedUser from "../actions/authedUser.js";
@@ -11,15 +11,23 @@ import { NavLink } from "../ui/NavLink.js";
 
 const Navbar = (props) => {
   return (
-    <nav className="flex justify-between py-4">
+    <nav className="flex  md:justify-between  py-4">
       <DropdownButton
-        icon={Bars4Icon}
+        icon={XMarkIcon}
         iconCollapsed={Bars4Icon}
-        className="md:hidden"
+        className="md:hidden w-1/2"
       >
-        <DropdownItem></DropdownItem>
+        <DropdownItem>
+          <NavLink to="/">Dashboard</NavLink>
+        </DropdownItem>
+        <DropdownItem>
+          <NavLink to="new-poll">New Poll</NavLink>
+        </DropdownItem>
+        <DropdownItem>
+          <NavLink to="leaderboard">Leaderboard</NavLink>
+        </DropdownItem>
       </DropdownButton>
-      <div className=" items-center px-4 hidden md:flex">
+      <div className="items-center px-4 hidden md:flex">
         <NavLink to="/">Dashboard</NavLink>
         <NavLink to="new-poll">New Poll</NavLink>
         <NavLink to="leaderboard">Leaderboard</NavLink>

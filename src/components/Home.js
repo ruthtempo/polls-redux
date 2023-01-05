@@ -7,7 +7,7 @@ const Home = (props) => {
   const [showAnsweredPolls, setShowAnsweredPolls] = useState(true);
 
   return (
-    <div className="grid grid-cols-1 justify-items-center">
+    <div className="grid grid-cols-1 md:justify-items-center">
       <div className="flex flex-col items-center md:w-1/4 p-4 rounded">
         <label>
           <input
@@ -31,10 +31,8 @@ const Home = (props) => {
 
       {showNewPolls && (
         <>
-          <h3 className="text-center mb-4 h-16 text-2xl flex items-center">
-            New Polls
-          </h3>
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 justify-items-center">
+          <h3 className="text-center mb-4 h-16 text-2xl">New Polls</h3>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4 justify-items-center">
             {props.loading
               ? null
               : props.unansweredPolls.map((poll) => (
@@ -45,10 +43,8 @@ const Home = (props) => {
       )}
       {showAnsweredPolls && (
         <>
-          <h3 className="text-center my-4 h-16 text-2xl flex items-center">
-            Answered Polls
-          </h3>
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 justify-items-center">
+          <h3 className="text-center my-4 h-16 text-2xl ">Answered Polls</h3>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4 justify-items-center">
             {props.loading
               ? null
               : props.answeredPolls.map((poll) => (
