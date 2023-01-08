@@ -39,3 +39,28 @@ describe("_saveQuestion", () => {
     );
   });
 });
+
+describe("_saveQuestionAnswer", () => {
+  it("will return the saved answer when no fields are empty", async () => {
+    const myAnswer = {
+      authedUser: "sarahedo",
+      qid: "vthrdm985a262al8qx3do",
+      answer: "optionOne",
+    };
+
+    await expect(_DATA._saveQuestionAnswer(myAnswer)).resolves.toBe(true);
+  });
+
+  it("will return an error message if incorrect data is passed into the function", async () => {
+    const myAnswer = {
+      authedUser: "sarahedo",
+      qid: "",
+      answer: "random answer",
+    };
+
+    const rejectResponse = "Please provide authedUser, qid, and answer";
+    await expect(_DATA._saveQuestionAnswer(myAnswer)).rejects.toEqual(
+      rejectResponse
+    );
+  });
+});
