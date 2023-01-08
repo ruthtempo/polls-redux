@@ -92,9 +92,15 @@ const MobileNavBar = (props) => {
           )}
           {showNav && (
             <div className="flex flex-col absolute bg-white w-full p-4">
-              <NavLink to="/">Dashboard</NavLink>
-              <NavLink to="new-poll">New Poll</NavLink>
-              <NavLink to="leaderboard">Leaderboard</NavLink>
+              <NavLink to="/" onClick={() => setShowNav(false)}>
+                Dashboard
+              </NavLink>
+              <NavLink to="new-poll" onClick={() => setShowNav(false)}>
+                New Poll
+              </NavLink>
+              <NavLink to="leaderboard" onClick={() => setShowNav(false)}>
+                Leaderboard
+              </NavLink>
             </div>
           )}
         </div>
