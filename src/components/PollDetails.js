@@ -13,23 +13,14 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
 
   const hasChosenAnswer = authedUser && authedUser.answers[question_id] != null; //chech if id is in answers object to disable both buttons once poll is answered
 
-  const percentageOption2 =
-    questions &&
-    question &&
-    Math.round(
-      (question.optionTwo.votes.length * 100) / Object.keys(questions).length
-    );
-  const percentageOption1 =
-    questions &&
-    question &&
-    Math.round(
-      (question.optionOne.votes.length * 100) / Object.keys(questions).length
-    );
+  const getPercentage = (option, users) => {
+    return Math.round((option.votes.length * 100) / Object.keys(users).length);
+  };
 
   return questions?.[question_id] == null ? (
     <NotFound />
   ) : (
-    question && (
+    question && users && (
       <div className="bg-indigo-100 py-4 grid grid-cols-1 justify-items-center">
         {loading ? null : (
           <>
@@ -54,7 +45,7 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
                     handleSaveAnswer(authedUser.id, question_id, "optionOne")
                   )
                 }
-                percentage={percentageOption1}
+                percentage={getPercentage(question.optionOne, users)}
                 votesLength={question.optionOne.votes.length}
                 text={question.optionOne.text}
               />
@@ -67,7 +58,7 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
                     handleSaveAnswer(authedUser.id, question_id, "optionTwo")
                   )
                 }
-                percentage={percentageOption2}
+                percentage={getPercentage(question.optionTwo, users)}
                 votesLength={question.optionTwo.votes.length}
                 text={question.optionTwo.text}
               />
