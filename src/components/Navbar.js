@@ -3,52 +3,103 @@ import {
   Bars4Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { useState } from "react";
 import { connect } from "react-redux";
 import setAuthedUser from "../actions/authedUser.js";
-import { DropdownButton } from "../ui/DropdownButton.js";
-import { DropdownItem } from "../ui/DropdownItem.js";
 import { NavLink } from "../ui/NavLink.js";
 
 const Navbar = (props) => {
   return (
-    <nav className="flex  md:justify-between  py-4">
-      <DropdownButton
-        icon={XMarkIcon}
-        iconCollapsed={Bars4Icon}
-        className="md:hidden w-1/2"
-      >
-        <DropdownItem>
+    <>
+      <MobileNavBar {...props} />
+      <nav className="flex md:justify-between py-4">
+        <div className="items-center px-4 hidden md:flex">
           <NavLink to="/">Dashboard</NavLink>
-        </DropdownItem>
-        <DropdownItem>
           <NavLink to="new-poll">New Poll</NavLink>
-        </DropdownItem>
-        <DropdownItem>
           <NavLink to="leaderboard">Leaderboard</NavLink>
-        </DropdownItem>
-      </DropdownButton>
-      <div className="items-center px-4 hidden md:flex">
-        <NavLink to="/">Dashboard</NavLink>
-        <NavLink to="new-poll">New Poll</NavLink>
-        <NavLink to="leaderboard">Leaderboard</NavLink>
-      </div>
-      <div className="flex">
-        <div className="flex items-center px-4">
-          <img
-            src={props.authedUser.avatarURL}
-            alt="user-avatar"
-            className="object-contain rounded-full mr-3 w-11"
-          />
-          <p className="text-lg mr-3">{props.authedUser.id}</p>
         </div>
-        <div
-          className="flex items-center cursor-pointer hover:text-indigo-600 mr-6"
-          onClick={() => props.dispatch(setAuthedUser(null))}
-        >
-          <ArrowRightOnRectangleIcon className="w-6" />
+        <div className=" hidden md:flex">
+          <div className="flex items-center px-4">
+            <img
+              src={props.authedUser.avatarURL}
+              alt="user-avatar"
+              className="object-contain rounded-full mr-3 w-11"
+            />
+            <p className="text-lg mr-3">{props.authedUser.id}</p>
+          </div>
+          <div
+            className="flex items-center cursor-pointer hover:text-indigo-600 mr-6"
+            onClick={() => props.dispatch(setAuthedUser(null))}
+          >
+            <ArrowRightOnRectangleIcon className="w-6" />
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+const MobileNavBar = (props) => {
+  const [showUser, setShowUser] = useState(false);
+  const [showNav, setShowNav] = useState(false);
+  return (
+    <div
+      className={`md:hidden items-center w-full ${
+        showUser || showNav ? "bg-indigo-300" : ""
+      }`}
+    >
+      <div className="flex flex-col">
+        <div className="flex justify-between p-3 items-center">
+          <div
+            onClick={() => {
+              setShowNav(!showNav);
+              setShowUser(false);
+            }}
+          >
+            {showNav ? (
+              <XMarkIcon className="w-11" />
+            ) : (
+              <Bars4Icon className="w-11" />
+            )}
+          </div>
+          <div
+            onClick={() => {
+              setShowUser(!showUser);
+              setShowNav(false);
+            }}
+          >
+            <img
+              src={props.authedUser.avatarURL}
+              alt="user-avatar"
+              className="rounded-full w-11"
+            />
+          </div>
+        </div>
+        <div>
+          {showUser && (
+            <div className="flex flex-col items-end absolute right-0 bg-white w-full p-4">
+              <div>
+                <p className="pb-3">{props.authedUser.id}</p>
+                <div
+                  onClick={() => props.dispatch(setAuthedUser(null))}
+                  className="flex"
+                >
+                  <p>Logout</p>
+                  <ArrowRightOnRectangleIcon className="w-6" />
+                </div>
+              </div>
+            </div>
+          )}
+          {showNav && (
+            <div className="flex flex-col absolute bg-white w-full p-4">
+              <NavLink to="/">Dashboard</NavLink>
+              <NavLink to="new-poll">New Poll</NavLink>
+              <NavLink to="leaderboard">Leaderboard</NavLink>
+            </div>
+          )}
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 
