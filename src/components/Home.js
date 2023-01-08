@@ -7,8 +7,9 @@ const Home = (props) => {
   const [showAnsweredPolls, setShowAnsweredPolls] = useState(true);
 
   return (
-    <div className="grid grid-cols-1 md:justify-items-center">
-      <div className="flex flex-col items-center md:w-1/4 p-4 rounded">
+    <div className="flex flex-col md:items-center justify-center">
+      <h3 className="text-center text-3xl py-3">Dashboard</h3>
+      <div className="flex flex-col pb-4 items-center">
         <label>
           <input
             className="rounded mr-4 cursor-pointer "
@@ -20,7 +21,7 @@ const Home = (props) => {
         </label>
         <label>
           <input
-            className="rounded mr-4  cursor-pointer"
+            className="rounded mr-4 cursor-pointer"
             type="checkbox"
             checked={showNewPolls}
             onChange={() => setShowNewPolls(!showNewPolls)}
@@ -31,8 +32,8 @@ const Home = (props) => {
 
       {showNewPolls && (
         <>
-          <h3 className="text-center mb-4 h-16 text-2xl">New Polls</h3>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4 justify-items-center">
+          <h3 className="text-center mt-4 h-16 text-xl">New Polls</h3>
+          <div className="grid gap-4 mb-4 md:grid-cols-2 xl:grid-cols-4 justify-items-center">
             {props.loading
               ? null
               : props.unansweredPolls.map((poll) => (
@@ -43,7 +44,7 @@ const Home = (props) => {
       )}
       {showAnsweredPolls && (
         <>
-          <h3 className="text-center my-4 h-16 text-2xl ">Answered Polls</h3>
+          <h3 className="text-center mt-4 h-16 text-xl ">Answered Polls</h3>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4 justify-items-center">
             {props.loading
               ? null

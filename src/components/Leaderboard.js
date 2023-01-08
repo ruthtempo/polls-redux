@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 const Leaderboard = ({ users }) => {
   return (
     users && (
-      <>
+      <div>
+        <h3 className="text-center text-3xl py-3">Leaderboard</h3>
         <div className="flex justify-center hidden md:flex">
           <table className="table-auto bg-indigo-200 md:w-2/3 xl:w-1/2 2xl:w-1/3 rounded-lg border-separate ">
             <thead className="h-11 bg-indigo-400 text-white border-md">
@@ -57,7 +58,7 @@ const Leaderboard = ({ users }) => {
             </div>
           </div>
         ))}
-      </>
+      </div>
     )
   );
 };

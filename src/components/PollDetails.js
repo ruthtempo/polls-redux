@@ -46,7 +46,7 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2">
               <Option
-                className="rounded-l-lg"
+                className="rounded-lg md:rounded-l-lg md:rounded-r-none"
                 isSelected={authedUser.answers[question_id] === "optionOne"}
                 disabled={hasChosenAnswer}
                 onClick={() =>
@@ -59,7 +59,7 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
                 text={question.optionOne.text}
               />
               <Option
-                className="rounded-r-lg"
+                className="rounded-lg md:rounded-r-lg md:rounded-l-none"
                 isSelected={authedUser.answers[question_id] === "optionTwo"}
                 disabled={hasChosenAnswer}
                 onClick={() =>
