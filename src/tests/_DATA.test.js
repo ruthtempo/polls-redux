@@ -1,4 +1,4 @@
-const _DATA = require("./_DATA");
+const _DATA = require("../_DATA");
 
 describe("_saveQuestion", () => {
   it("will return the formatted saved question when all required fields are filled", async () => {
