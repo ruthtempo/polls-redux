@@ -79,10 +79,10 @@ const MobileNavBar = (props) => {
           {showUser && (
             <div className="flex flex-col items-end absolute right-0 bg-white w-full p-4">
               <div>
-                <p className="pb-3">{props.authedUser.id}</p>
+                <p className="pb-3 capitalize">{props.authedUser.id}</p>
                 <div
                   onClick={() => props.dispatch(setAuthedUser(null))}
-                  className="flex"
+                  className="flex justify-end"
                 >
                   <p>Logout</p>
                   <ArrowRightOnRectangleIcon className="w-6" />
