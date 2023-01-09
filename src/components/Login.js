@@ -28,6 +28,7 @@ const LoginForm = ({ dispatch, users, loading }) => {
       <h1 className="text-3xl my-2">Employee Polls</h1>
       <div className="flex flex-col xl:w-2/5 w-3/4">
         <DropdownButton
+          dataTestid="login-dropdown"
           buttonText={selectedUser?.id ?? "choose user"}
           iconCollapsed={ChevronDownIcon}
           icon={ChevronUpIcon}
@@ -44,17 +45,22 @@ const LoginForm = ({ dispatch, users, loading }) => {
               ))}
         </DropdownButton>
         <input
+          data-testid="password"
           type="password"
           placeholder="Enter your password"
           className="rounded-md p-2 my-2"
           onChange={handleChange}
         />
         {errorLogin && (
-          <p className="text-red-600 text-center italic">
+          <p
+            className="text-red-600 text-center italic"
+            data-testid="error-message"
+          >
             Username and Password do not match
           </p>
         )}
         <Button
+          dataTestid="login-button"
           buttonText={"Log in"}
           onClick={handleSubmit}
           disabled={!selectedUser || !password}
