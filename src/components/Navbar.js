@@ -18,7 +18,7 @@ const Navbar = (props) => {
           <NavLink to="new-poll">New Poll</NavLink>
           <NavLink to="leaderboard">Leaderboard</NavLink>
         </div>
-        <div className=" hidden md:flex">
+        <div className="hidden md:flex">
           <div className="flex items-center px-4">
             <img
               src={props.authedUser.avatarURL}
@@ -110,7 +110,7 @@ const MobileNavBar = (props) => {
 };
 
 const mapStateToProps = ({ authedUser, users }) => ({
-  authedUser: users[authedUser], //we retrieve the authedUser id, we use it to get the whole suer object from users.
+  authedUser: users[authedUser], //we retrieve the authedUser id, we use it to get the whole user object from users.
 });
 
 export default connect(mapStateToProps)(Navbar);
