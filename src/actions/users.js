@@ -2,7 +2,7 @@ import * as API from "../_DATA";
 
 export const RECEIVE_USERS_DATA = "RECEIVE_USERS_DATA";
 
-const receiveData = (users) => {
+export const receiveData = (users) => {
   return {
     type: RECEIVE_USERS_DATA,
     users,
