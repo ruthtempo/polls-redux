@@ -4,8 +4,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Toolkit:
 
-React, Redux
-Tailwind
+React: v18.2.0
+Redux : v8.0.5
+Redux-Toolkit: v1.9.1
+Redux-Thunk: v2.4.2
+React-Router-Dom : v6.6.1
+react-redux-loading-bar: v5.0.4
+testing-Library/Jest-dom: v5.16.5
+React-testing-library: v13.4.0
+Tailwindcss: v3.2.4
+heroicons: v2.0.13
+
+## Relevant folders:
+
+actions
+components (main components/pages)
+media (images)
+middleware
+reducers
+tests ( all tests are stored here)
+ui ( custom components)
 
 ## Available Scripts
 
@@ -20,13 +38,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
