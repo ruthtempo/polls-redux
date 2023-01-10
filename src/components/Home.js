@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { PollCard } from "./PollCard";
 
 const Home = (props) => {
-  const [showNewPolls, setShowNewPolls] = useState(false);
-  const [showAnsweredPolls, setShowAnsweredPolls] = useState(true);
+  const [showNewPolls, setShowNewPolls] = useState(true);
+  const [showAnsweredPolls, setShowAnsweredPolls] = useState(false);
 
   return (
     <div className="flex flex-col md:items-center justify-center">
@@ -67,7 +67,7 @@ const mapStateToProps = ({ questions, authedUser }) => {
           question.optionOne.votes.includes(authedUser) ||
           question.optionTwo.votes.includes(authedUser)
       )
-      .sort((a, b) => a.timestamp - b.timestamp);
+      .sort((a, b) => b.timestamp - a.timestamp);
 
   const unansweredPolls =
     questions &&
@@ -77,7 +77,7 @@ const mapStateToProps = ({ questions, authedUser }) => {
           !question.optionOne.votes.includes(authedUser) &&
           !question.optionTwo.votes.includes(authedUser)
       )
-      .sort((a, b) => a.timestamp - b.timestamp);
+      .sort((a, b) => b.timestamp - a.timestamp);
 
   const loading = questions === null; //if questions are not loaded it will be true (boolean);
 
