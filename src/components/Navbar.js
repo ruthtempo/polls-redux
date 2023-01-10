@@ -15,7 +15,7 @@ const Navbar = (props) => {
       <nav className="flex md:justify-between py-4">
         <div className="items-center px-4 hidden md:flex">
           <NavLink to="/">Dashboard</NavLink>
-          <NavLink to="new-poll">New Poll</NavLink>
+          <NavLink to="/add">New Poll</NavLink>
           <NavLink to="leaderboard">Leaderboard</NavLink>
         </div>
         <div className="hidden md:flex">
