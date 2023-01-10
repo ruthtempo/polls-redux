@@ -16,7 +16,7 @@ const HomeRoute = (props) => {
     <Routes>
       <Route index element={<Home />} />
       <Route path="/questions/:question_id" element={<PollDetails />} />
-      <Route path="/add" element={<NewPoll />} />
+      <Route path="add" element={<NewPoll />} />
     </Routes>
   );
 };
