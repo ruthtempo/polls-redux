@@ -3,33 +3,45 @@ import {
   Bars4Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { createSelector } from "@reduxjs/toolkit";
 import { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import setAuthedUser from "../actions/authedUser.js";
 import { NavLink } from "../ui/NavLink.js";
 
-const Navbar = (props) => {
+const authedUserObj = createSelector(
+  (state) => state.users,
+  (state) => state.authedUser,
+  (users, authedUser) => users[authedUser]
+);
+export const Navbar = () => {
+  // const authedUser = useSelector((state) => state.authedUser);
+  // const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  // const currentUser = users[authedUser];
+  const currentUser = useSelector(authedUserObj);
+
   return (
     <>
-      <MobileNavBar {...props} />
+      <MobileNavBar />
       <nav className="flex md:justify-between py-4">
         <div className="items-center px-4 hidden md:flex">
           <NavLink to="/">Dashboard</NavLink>
-          <NavLink to="/add">New Poll</NavLink>
+          <NavLink to="add">New Poll</NavLink>
           <NavLink to="leaderboard">Leaderboard</NavLink>
         </div>
         <div className="hidden md:flex">
           <div className="flex items-center px-4">
             <img
-              src={props.authedUser.avatarURL}
+              src={currentUser.avatarURL}
               alt="user-avatar"
               className="object-contain rounded-full mr-3 w-11"
             />
-            <p className="text-lg mr-3">{props.authedUser.id}</p>
+            <p className="text-lg mr-3">{currentUser.id}</p>
           </div>
           <div
             className="flex items-center cursor-pointer hover:text-indigo-600 mr-6"
-            onClick={() => props.dispatch(setAuthedUser(null))}
+            onClick={() => dispatch(setAuthedUser(null))}
           >
             <ArrowRightOnRectangleIcon className="w-6" />
           </div>
@@ -39,9 +51,11 @@ const Navbar = (props) => {
   );
 };
 
-const MobileNavBar = (props) => {
+const MobileNavBar = () => {
   const [showUser, setShowUser] = useState(false);
   const [showNav, setShowNav] = useState(false);
+  const dispatch = useDispatch();
+  const currentUser = useSelector(authedUserObj);
   return (
     <div
       className={`md:hidden items-center w-full ${
@@ -69,7 +83,7 @@ const MobileNavBar = (props) => {
             }}
           >
             <img
-              src={props.authedUser.avatarURL}
+              src={currentUser.avatarURL}
               alt="user-avatar"
               className="rounded-full w-11"
             />
@@ -79,9 +93,9 @@ const MobileNavBar = (props) => {
           {showUser && (
             <div className="flex flex-col items-end absolute right-0 bg-white w-full p-4">
               <div>
-                <p className="pb-3 capitalize">{props.authedUser.id}</p>
+                <p className="pb-3 capitalize">{currentUser.id}</p>
                 <div
-                  onClick={() => props.dispatch(setAuthedUser(null))}
+                  onClick={() => dispatch(setAuthedUser(null))}
                   className="flex justify-end"
                 >
                   <p>Logout</p>
@@ -95,7 +109,7 @@ const MobileNavBar = (props) => {
               <NavLink to="/" onClick={() => setShowNav(false)}>
                 Dashboard
               </NavLink>
-              <NavLink to="new-poll" onClick={() => setShowNav(false)}>
+              <NavLink to="add" onClick={() => setShowNav(false)}>
                 New Poll
               </NavLink>
               <NavLink to="leaderboard" onClick={() => setShowNav(false)}>
@@ -108,9 +122,3 @@ const MobileNavBar = (props) => {
     </div>
   );
 };
-
-const mapStateToProps = ({ authedUser, users }) => ({
-  authedUser: users[authedUser], //we retrieve the authedUser id, we use it to get the whole user object from users.
-});
-
-export default connect(mapStateToProps)(Navbar);
