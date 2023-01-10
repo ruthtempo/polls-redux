@@ -1,6 +1,34 @@
-# Getting Started with Create React App and Redux
+# Project Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+POLLS - This project was developed as part of the React Nanodegree by Udacity.
+
+As a user you can:
+
+- Login and Logout
+- Answer polls and create your own.
+- Track your participation on the Leaderboard
+
+# Getting Started
+
+1. Fork the project
+2. Clone the project
+3. Navigate to the project directory cd sos-animals
+4. Install the dependencies npm install
+5. Run the project `npm start`
+
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+# Running the tests : `npm run test`
+
+## Relevant Folders:
+
+actions
+components (main components/pages)
+media (images)
+middleware
+reducers
+tests
+ui ( my custom components)
 
 ## Toolkit:
 
@@ -15,26 +43,6 @@ React-testing-library: v13.4.0
 Tailwindcss: v3.2.4
 heroicons: v2.0.13
 
-## Relevant folders:
+# Authors
 
-actions
-components (main components/pages)
-media (images)
-middleware
-reducers
-tests ( all tests are stored here)
-ui ( custom components)
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ruth Temporal
