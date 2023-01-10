@@ -1,11 +1,16 @@
 # Project Title
 
-POLLS - This project was developed as part of the React Nanodegree by Udacity.
+## POLLS
+
+This project was developed as part of the React Nanodegree by Udacity.
+
+# Features
 
 As a user you can:
 
 - Login and Logout
 - Answer polls and create your own.
+- Toggle between answered and unsanswered polls
 - Track your participation on the Leaderboard
 
 # Getting Started
@@ -13,24 +18,28 @@ As a user you can:
 1. Fork the project
 2. Clone the project
 3. Navigate to the project directory cd sos-animals
-4. Install the dependencies npm install
+4. Install the dependencies `npm install`
 5. Run the project `npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-# Running the tests : `npm run test`
+# Running the tests:
 
-## Relevant Folders:
+`npm run test`
 
-actions
-components (main components/pages)
-media (images)
-middleware
-reducers
-tests
-ui ( my custom components)
+# Relevant Folders:
 
-## Toolkit:
+## src
+
+- actions
+- components (main components/pages)
+- media (images)
+- middleware
+- reducers
+- tests
+- ui ( my custom components)
+
+# Toolkit:
 
 React: v18.2.0
 Redux : v8.0.5
