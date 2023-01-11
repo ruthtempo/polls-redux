@@ -1,7 +1,7 @@
-import { SAVE_ANSWER } from "../actions/questions";
+import { SAVE_ANSWER, SAVE_NEW_QUESTION } from "../actions/questions";
 import { RECEIVE_USERS_DATA } from "../actions/users";
 
-export default function users(state = null, action) {
+export function users(state = null, action) {
   switch (action.type) {
     case RECEIVE_USERS_DATA:
       return action.users;
@@ -17,6 +17,15 @@ export default function users(state = null, action) {
             ...state[authedUser].answers,
             [qid]: answer,
           },
+        },
+      };
+    case SAVE_NEW_QUESTION:
+      const question = action.question;
+      return {
+        ...state,
+        [question.author]: {
+          ...state[question.author],
+          questions: [...state[question.author].questions, question.id],
         },
       };
     default:
