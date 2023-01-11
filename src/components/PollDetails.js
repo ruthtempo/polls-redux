@@ -13,8 +13,11 @@ const PollDetails = ({ questions, users, loading, authedUser, dispatch }) => {
 
   const hasChosenAnswer = authedUser && authedUser.answers[question_id] != null; //chech if id is in answers object to disable both buttons once poll is answered
 
-  const getPercentage = (option, users) => {
-    return Math.round((option.votes.length * 100) / Object.keys(users).length);
+  const totalQuestionVotes =
+    question.optionOne.votes.length + question.optionTwo.votes.length;
+
+  const getPercentage = (option) => {
+    return Math.floor((option.votes.length * 100) / totalQuestionVotes);
   };
 
   return questions?.[question_id] == null ? (
