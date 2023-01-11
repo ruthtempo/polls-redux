@@ -16,9 +16,9 @@ function App(props) {
 
   return (
     <div className="container">
+      <Navbar />
       {props.authedUser !== null ? (
         <>
-          <Navbar />
           <LoadingBar
             style={{ backgroundColor: "mediumSlateBlue", height: "5px" }}
           />
