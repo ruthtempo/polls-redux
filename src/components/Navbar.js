@@ -12,11 +12,11 @@ import { NavLink } from "../ui/NavLink.js";
 const authedUserObj = createSelector(
   (state) => state.users,
   (state) => state.authedUser,
-  (users, authedUser) => users[authedUser]
+  (users, authedUser) => users?.[authedUser]
 );
 export const Navbar = () => {
   const dispatch = useDispatch();
-
+  const authedUser = useSelector((state) => state.authedUser);
   const currentUser = useSelector(authedUserObj);
 
   return (
@@ -28,22 +28,24 @@ export const Navbar = () => {
           <NavLink to="add">New Poll</NavLink>
           <NavLink to="leaderboard">Leaderboard</NavLink>
         </div>
-        <div className="hidden md:flex">
-          <div className="flex items-center px-4">
-            <img
-              src={currentUser.avatarURL}
-              alt="user-avatar"
-              className="object-contain rounded-full mr-3 w-11"
-            />
-            <p className="text-lg mr-3">{currentUser.id}</p>
+        {authedUser && (
+          <div className="hidden md:flex">
+            <div className="flex items-center px-4">
+              <img
+                src={currentUser.avatarURL}
+                alt="user-avatar"
+                className="object-contain rounded-full mr-3 w-11"
+              />
+              <p className="text-lg mr-3">{currentUser.id}</p>
+            </div>
+            <div
+              className="flex items-center cursor-pointer hover:text-indigo-600 mr-6"
+              onClick={() => dispatch(setAuthedUser(null))}
+            >
+              <ArrowRightOnRectangleIcon className="w-6" />
+            </div>
           </div>
-          <div
-            className="flex items-center cursor-pointer hover:text-indigo-600 mr-6"
-            onClick={() => dispatch(setAuthedUser(null))}
-          >
-            <ArrowRightOnRectangleIcon className="w-6" />
-          </div>
-        </div>
+        )}
       </nav>
     </>
   );
@@ -53,6 +55,7 @@ const MobileNavBar = () => {
   const [showUser, setShowUser] = useState(false);
   const [showNav, setShowNav] = useState(false);
   const dispatch = useDispatch();
+  const authedUser = useSelector((state) => state.authedUser);
   const currentUser = useSelector(authedUserObj);
   return (
     <div
@@ -74,21 +77,23 @@ const MobileNavBar = () => {
               <Bars4Icon className="w-11" />
             )}
           </div>
-          <div
-            onClick={() => {
-              setShowUser(!showUser);
-              setShowNav(false);
-            }}
-          >
-            <img
-              src={currentUser.avatarURL}
-              alt="user-avatar"
-              className="rounded-full w-11"
-            />
-          </div>
+          {authedUser && (
+            <div
+              onClick={() => {
+                setShowUser(!showUser);
+                setShowNav(false);
+              }}
+            >
+              <img
+                src={currentUser.avatarURL}
+                alt="user-avatar"
+                className="rounded-full w-11"
+              />
+            </div>
+          )}
         </div>
         <div>
-          {showUser && (
+          {authedUser && showUser && (
             <div className="flex flex-col items-end absolute right-0 bg-white w-full p-4">
               <div>
                 <p className="pb-3 capitalize">{currentUser.id}</p>
@@ -102,19 +107,21 @@ const MobileNavBar = () => {
               </div>
             </div>
           )}
-          {showNav && (
-            <div className="flex flex-col absolute bg-white w-full p-4">
-              <NavLink to="/" onClick={() => setShowNav(false)}>
-                Dashboard
-              </NavLink>
-              <NavLink to="add" onClick={() => setShowNav(false)}>
-                New Poll
-              </NavLink>
-              <NavLink to="leaderboard" onClick={() => setShowNav(false)}>
-                Leaderboard
-              </NavLink>
-            </div>
-          )}
+          <div
+            className={` flex flex-col absolute z-10 w-full bg-white p-4 transition-transform ease-in-out duration-150 origin-top ${
+              showNav ? " scale-y-100 " : "scale-y-0"
+            }`}
+          >
+            <NavLink to="/" onClick={() => setShowNav(false)}>
+              Dashboard
+            </NavLink>
+            <NavLink to="add" onClick={() => setShowNav(false)}>
+              New Poll
+            </NavLink>
+            <NavLink to="leaderboard" onClick={() => setShowNav(false)}>
+              Leaderboard
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>
