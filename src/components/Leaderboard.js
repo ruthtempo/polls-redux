@@ -39,7 +39,10 @@ const Leaderboard = ({ users }) => {
 
         {/* Only in mobile sm screen */}
         {Object.values(users).map((user) => (
-          <div className="md:hidden mx-2 my-4 shadow-lg rounded-lg bg-indigo-200 flex flex-col py-2 border-teal-400 border-2">
+          <div
+            key={user.id}
+            className="md:hidden mx-2 my-4 shadow-lg rounded-lg bg-indigo-200 flex flex-col py-2 border-teal-400 border-2"
+          >
             <div className="flex items-center justify-center p-4">
               <img
                 src={user.avatarURL}
