@@ -15,10 +15,8 @@ const authedUserObj = createSelector(
   (users, authedUser) => users[authedUser]
 );
 export const Navbar = () => {
-  // const authedUser = useSelector((state) => state.authedUser);
-  // const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
-  // const currentUser = users[authedUser];
+
   const currentUser = useSelector(authedUserObj);
 
   return (
