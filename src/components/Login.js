@@ -8,7 +8,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 
 const LoginForm = ({ dispatch, users, loading }) => {
   const [selectedUser, setSelectedUser] = useState();
-  const [password, setPassword] = useState("password123");
+  const [password, setPassword] = useState();
   const [errorLogin, setErrorLogin] = useState(false);
 
   const handleChange = (e) => {
@@ -46,6 +46,7 @@ const LoginForm = ({ dispatch, users, loading }) => {
         </DropdownButton>
         <input
           data-testid="password"
+          value={password}
           type="password"
           placeholder="Enter your password"
           className="rounded-md p-2 my-2"
