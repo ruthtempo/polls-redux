@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const NewPoll = ({ authedUser, dispatch }) => {
   const [option1, setOption1] = useState();
   const [option2, setOption2] = useState();
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const handleChangeO1 = (e) => {
@@ -17,13 +18,18 @@ const NewPoll = ({ authedUser, dispatch }) => {
   };
 
   const handleClick = () => {
-    const newQuestion = {
-      optionOneText: option1,
-      optionTwoText: option2,
-      author: authedUser,
-    };
-    dispatch(handleSaveNewQuestion(newQuestion));
-    navigate("/");
+    if (option1 && option2) {
+      setError(false);
+      const newQuestion = {
+        optionOneText: option1,
+        optionTwoText: option2,
+        author: authedUser,
+      };
+      dispatch(handleSaveNewQuestion(newQuestion));
+      navigate("/");
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -44,6 +50,11 @@ const NewPoll = ({ authedUser, dispatch }) => {
           onChange={handleChangeO2}
         />
         <Button buttonText={"Save"} onClick={handleClick} />
+        {error && (
+          <p className="text-red-600 text-center">
+            Fill the two option fields to create a poll
+          </p>
+        )}
       </div>
     </div>
   );
