@@ -22,6 +22,7 @@ export const Option = ({
           drop-shadow-md
           cursor-pointer
           my-3
+          w-80
           ${className ?? ""}
           ${isSelected ? "bg-teal-300" : ""}
         `}
