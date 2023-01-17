@@ -17,7 +17,7 @@ As a user you can:
 
 1. Fork the project
 2. Clone the project
-3. Navigate to the project directory cd sos-animals
+3. Navigate to the project directory
 4. Install the dependencies `npm install`
 5. Run the project `npm start`
 
