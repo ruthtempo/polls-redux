@@ -8,7 +8,7 @@ This project was developed as part of the React Nanodegree by Udacity.
 
 As a user you can:
 
-- Login and Logout
+- Login and Logout ( Example: sarahedo with password: "password123". Further login details are available in DATA.js.)
 - Answer polls and create your own.
 - Toggle between answered and unsanswered polls
 - Track your participation on the Leaderboard
